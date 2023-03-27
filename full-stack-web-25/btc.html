@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+    <div id="main"></div>
+    <target></target>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        var api = { }
+        api.template = `
+                        <button @click="refresh()">Refresh</button>
+                        <pre>{{price}}</pre>
+                        <p>{{current}}</p>
+                        <p id = "result">...</p>
+                        `
+        api.data    = function f() {
+                        return {current : "", price : ""}
+                    }
+        api.methods = { }
+        api.methods.refresh = async function f() {
+            var url = "https://api.coinbase.com/v2/prices/BTC-USD/spot"
+            var response = await fetch(url)
+            this.price = await response.text()
+            this.current = (JSON.parse(this.price)).data.amount
+            document.getElementById("result").innerHTML += "<br>"+this.price
+
+        }
+
+        Vue.createApp(api).mount("target")
+
+
+
+
+    </script>
+</body>
+
+</html>

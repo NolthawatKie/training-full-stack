@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+    <div id="main">...</div>
+    <target></target>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+
+        var realLoveHate = {}
+
+        realLoveHate.template = `   <button @click="addLove()">Love</button> 
+                                    <button @click="addHate()">Hate</button>
+                                    <p id = "result"></p>
+                                `
+        realLoveHate.data = function f() {
+            return {result : ""}
+        }
+
+        realLoveHate.methods = {}
+
+        realLoveHate.methods.addLove = function f() {
+            document.getElementById('result').innerHTML += "Love" + "<br>"
+
+        }
+        realLoveHate.methods.addHate = function f() {
+            document.getElementById('result').innerHTML += "Hate" + "<br>"
+        }
+        // var Show = {}
+        // Show.data  = function f() {
+        //     return {products : ["Latte", "Mocha,", "Espresso"]}
+        // }
+        // Show.template = `
+        //                 <button>{{products[0]}}</button> <br>
+        //                 <button v-for = "e in products">{{e}}</button>
+        // `
+        Vue.createApp(realLoveHate).mount("target")
+
+
+        // var LoveHate = {}
+        // LoveHate.template = `<button @click = "addLove()">Love</button> 
+        //                     <button @click = "addHate()">Hate</button>
+        //                     <p>{{result}}</p>`
+        // LoveHate.data = function () {
+        //     return { result: "" }
+        //             }
+        // LoveHate.methods = {}
+        // LoveHate.methods.addLove = function f() {
+        //     this.result += "L"
+        // }
+        // LoveHate.methods.addHate = function f() {
+        //     this.result += "H"
+        // }
+        // Vue.createApp(LoveHate).mount("target")
+
+
+    </script>
+</body>
+
+</html>

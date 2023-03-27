@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+    <!-- <div id="main">...</div> -->
+    <target></target>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        var Counter = {}
+        Counter.template = `<button @click = "increase()">Value{{current}}</button>`
+        Counter.data = function () {
+            //var model = {}
+            //model.current = 0
+            //return model
+
+            return { current: 0 }
+        }
+        Counter.methods = {}
+        Counter.methods.increase = function f() {
+            this.current ++
+        }
+        Vue.createApp(Counter).mount("target")
+        var Sample = {}
+        Sample.template = "<button>Love</button>"  // Template 
+        //Vue.createApp(Sample).mount("target")
+        
+    </script>
+</body>
+
+</html>

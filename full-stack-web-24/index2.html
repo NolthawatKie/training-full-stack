@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <button onclick="refresh()">Refresh</button>
+
+    <script>
+        var url = "https://api.coinbase.com/v2/prices/BTC-USD/spot"
+        function refresh() {
+            document.body.innerHTML += "<br>Starting"
+            var p = fetch(url).then(convert).then(show).catch(warning)
+            document.body.innerHTML += "<br>" + p
+            document.body.innerHTML += "<br>Finish."
+        }
+
+        function convert(r) {
+            document.body.innerHTML += "<br>" + r
+            console.log(r)
+            return r.text() // fn in AJAX 
+
+        }
+
+        function show(t) {
+            document.body.innerHTML += "<br>" + t
+        }
+
+        function warning(e) {
+            document.body.innerHTML += "<br>" + e
+            console.log(e)
+        }
+    </script>
+
+</body>
+
+</html>

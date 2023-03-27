@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <button onclick="refresh()">Refresh</button>
+
+    <script>
+        
+        async function refresh() {
+            try {
+                document.body.innerHTML += "<br>Starting" 
+                var url     = "https://api.coinbaseee.com/v2/prices/BTC-USD/spot"
+                var response = await fetch(url)
+                var text    = await response.text()
+                document.body.innerHTML += "<br>" + text 
+                document.body.innerHTML += "<br>Finish" 
+            } catch (e) {
+                document.body.innerHTML += "<br>" + e 
+                alert(e)
+                console.log(e)
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

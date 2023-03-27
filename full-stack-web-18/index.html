@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+
+    </head>
+    <body>
+        <input id = "number" placeholder="Enter your price"> 
+        <button onclick ="add()">Add</button>
+        <button onclick="reset()">Clear</button>
+        <pre id="report"></pre>
+        <p id = "total">0</p>
+
+        <script>
+            var numberElement = document.getElementById("number")
+            var reportElement = document.getElementById("report")
+            var totalElement = document.getElementById("total")
+
+            function add() {
+
+                var n = +numberElement.value || 0
+                numberElement.value = ""
+                reportElement.innerHTML += n.toFixed(2) + "<br>"
+
+                var tmp = +totalElement.innerHTML || 0
+                tmp = (tmp + n).toFixed(2)
+                totalElement.innerHTML = tmp
+            }
+
+            function reset() {
+                numberElement.innerHTML = ""
+                reportElement.innerHTML = ""
+                totalElement.innerHTML = 0
+
+            }
+
+        </script>
+        
+    </body>
+    
+
+
+</html>

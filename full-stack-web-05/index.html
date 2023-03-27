@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>iCoffee</title>
+        <link rel="stylesheet" href="bootstrap.css">
+    </head>
+        <body>
+            <header>
+                <section class="container">
+                    <h3 class="logo">iCofee</h3>
+                    <a href="#">Sign Up</a>
+                    <a href="#">Become Rider</a>
+                    <a href="#">About</a>
+                    <a href="#">Open Shop</a>
+                    <a href="#">login</a>
+                    <h1 class="slogan">Your Slogan Here</h1>
+                </section>
+
+            </header>
+
+            <main>
+                <section class="container"> 
+                    <!-- div ~ section -->
+                    <h3>iCoffee</h3>
+                    <section class="detail">
+                        <p>
+                            Oooo oo o oooo ooo ooooo oooo oooo.
+                            Oooo oo o oooo ooo ooooo oooo oooo.
+                            Oooo oo o oooo ooo ooooo oooo oooo.
+                            Oooo oo o oooo ooo ooooo oooo oooo.
+                        </p>
+                        <p>
+                            Oooo oo o oooo ooo ooooo oooo oooo.
+                            Oooo oo o oooo ooo ooooo oooo oooo.
+                            Oooo oo o oooo ooo ooooo oooo oooo.
+                            Oooo oo o oooo ooo ooooo oooo oooo.
+                        </p>
+                        <p>
+                            Oooo oo o oooo ooo ooooo oooo oooo.
+                            Oooo oo o oooo ooo ooooo oooo oooo.
+                            Oooo oo o oooo ooo ooooo oooo oooo.
+                            Oooo oo o oooo ooo ooooo oooo oooo.
+                        </p>
+                    </section>
+                    <a href="#" class="main-sign-up">Sign up</a>
+                </section>
+            </main>
+
+            <footer>
+
+            </footer>
+
+
+
+            <p>Welcome to iCoffee web site.</p>
+            <button>Latte</button>
+            <button class="good">Mocha</button>
+            <button class="good">Cappuccino</button>
+            <button>Espresso</button>
+            <style>
+
+                p {
+                    /* color : pink */
+                }
+
+                .good {
+                    color : brown
+                }
+
+                :root{
+                    --header-background : steelblue;
+                    --footer-background : #686868;
+                }
+
+                header {
+                    color: white;
+                    height: 30rem;
+                    background: var(--header-background);
+                }
+                main {
+                    height: 50rem;
+                }
+                footer{
+                    height: 20rem;
+                    background: var(--footer-background);
+                }
+                .slogan {
+                    margin-top: 10rem;
+                    font-size: 4rem;
+                    font-weight: 600;
+                }
+                /* for all a in header */
+                header a {
+                    color: white;
+                    text-decoration: none;
+                    margin-left: 1rem;
+                }
+                .logo {
+                    display: inline-block;
+                }
+
+                @media(max-width: 575px) {
+                    header a {
+                        display: none;
+                    }
+                }
+                .detail {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr 1fr;
+                    column-gap: 1rem;
+                }
+                @media (max-width: 575px) {
+                    .detail {
+                        display: grid;
+                        grid-template-columns: 1fr;
+                    }
+                }
+                .main-sign-up {
+                    background: var(--header-background);
+                    padding: 1rem 2rem;
+                    color: white;
+                    margin: 1rem auto;
+                    display: block;
+                    max-width: 10rem;
+                    text-align: center;
+                    border-radius: 3rem;
+                    text-decoration: none;
+                    font-size: 1.5rem;
+                }
+
+            </style>
+        </body>
+        
+
+
+
+</html>

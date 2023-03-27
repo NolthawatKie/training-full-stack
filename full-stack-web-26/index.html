@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="start">...</div>
+
+    <script type = "text/babel">
+
+
+
+        // class Counter extends React.Component {
+        //     current = 0
+        //     render() {
+        //         return  <div>
+        //                     <button onClick = { () => this.next()}> Go {this.current}</button>
+        //                 </div>
+        //     }
+        //     next() {
+        //         this.current ++
+        //         this.forceUpdate()
+        //     }
+        // }
+
+        // var start = document.getElementById("start")
+        // var root = ReactDOM.createRoot(start)
+        // root.render(<Counter />)
+
+        // class Cycle extends React.Component {
+        //     idx = 0
+        //     list = ["Single", "Married", "Divordced", "Widowed"]
+        //     render () {
+        //         return  <button onClick={() => this.next()}>{this.list[this.idx]}</button>
+        //     }
+        //     next() {
+        //         this.idx++
+        //         if (this.idx >= this.list.length) {
+        //             this.idx = 0 }          
+        //         this.forceUpdate()
+        //     }
+
+        // }
+        // var start = document.getElementById("start")
+        // var root = ReactDOM.createRoot(start)
+        // root.render(<Cycle />)
+        
+        // class Report extends React.Component {
+        //     list = ["Latte", "Moccha", "Espresso", "Cappuccino"]
+        //     render() {
+        //         // var item = [] // convert array to mark up array
+        //         // for(var i = 0 ; i < this.list.length ; i++) {
+        //         //     item.push(<button>{this.list[i]}</button>)
+                
+        //         // }
+        //         var item =  this.list.map(x => <button>{x}</button>)
+        //         return  <div>
+        //                     {item}
+        //                 </div>
+        //     }
+        // }
+
+
+        // class LoveHate extends React.Component {
+        //     list = [ ]
+        //     render() {
+        //         var items = this.list.map(x => <p>{x}</p>)
+        //         return  <div>
+        //                     <button onClick = {() => this.add("Love")}>Love</button>
+        //                     <button onClick={() => this.add("Hate")}>Hate</button>
+        //                     {items}
+        //                 </div>
+                        
+        //     }
+        //     add(x) {
+        //         this.list.push(x)
+        //         this.forceUpdate()
+        //     }
+
+        // }
+
+        // var start = document.getElementById("start")
+        // var root = ReactDOM.createRoot(start)
+        // root.render(<LoveHate />)
+
+        class App extends React.Component {
+
+            result = ""
+            render() {
+                return  <div>
+                            <button onClick={() => this.refresh()}>Refresh</button>
+                            <p>{this.result}</p>
+                        </div>
+            }
+            async refresh() {
+                var url = "https://api.coinbase.com/v2/prices/BTC-USD/spot"
+                var response = await fetch(url)
+                var result0 = await response.text()
+                //this.result = (JSON.parse(result0)).data.amount
+                this.result = result0
+                this.forceUpdate()
+
+            }
+        }
+        var start = document.getElementById("start")
+        var root = ReactDOM.createRoot(start)
+        root.render(<App />)
+
+
+
+    </script>
+
+
+</body>
+
+</html>
+
+

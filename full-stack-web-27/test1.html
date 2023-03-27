@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="start"></div>
+    <script type="text/babel">
+        class Check extends React.Component {
+            country = ""
+            list = ["London", "New York", "Paris", "Tokyo"]
+            result = "..."
+            render() {
+                return  <div>
+                        <input value = {this.country}
+                                    onChange = {(event) => this.typing(event)}/>
+                        <button onClick = {() => this.checking()}>Check</button>
+                        <p>{this.result}</p>
+                        </div>
+            }
+
+            typing(event) {
+                this.country = event.target.value
+                this.forceUpdate()
+            }
+
+            checking(event) {
+                var flag = "No"
+                if(this.country == "") {
+                    flag = "Enter your Country"
+                }
+                
+                for(var i = 0; i < this.list.length; i++){                  
+                    if ( this.country == this.list[i] ) {
+                        flag =  "Yes"
+                    } 
+                    
+
+                }
+                this.result = flag
+                
+                this.forceUpdate()
+            }
+
+
+        }
+        var start = document.getElementById("start")
+        var root = ReactDOM.createRoot(start)
+        root.render(<Check/>)
+
+
+    </script>
+
+
+</body>
+
+</html>

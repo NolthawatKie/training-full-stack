@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="start">...</div>
+    <script type="text/babel">
+
+        class Sample extends React.Component {
+            render() { //this.props contain attribute
+                return <button>{this.props.label}</button>
+            }
+        }
+        class Bar extends React.Component {
+            s = ""
+            render() {
+
+                var v = + this.props.width || 0
+                var s = ""
+                for(var i = 0; i < v; i ++) {
+                    s = s + "O"
+                }
+                return <div>{v} : {s}  </div>
+                
+            }
+                
+        }
+
+
+        class Main extends React.Component {
+            render() {
+                var data = [7,6,8,9,15]
+                var bars = data.map(x => <Bar width = {x}/> )
+                return  <div>
+                        <p>Welcome to {this.props.brand}, {this.props.loaction} branch</p>
+                        <Sample label="Latte" />
+                        <Sample label="Moccha" />
+                        <Sample label="Cappuccino" />
+                        {bars}
+                        
+                        
+
+                        
+
+                        </div>
+            }
+        }
+
+
+
+        var start = document.getElementById("start")
+        var root = ReactDOM.createRoot(start)
+        root.render(<Main location="Bangkok" brand="iCoffee"></Main>)
+
+    </script>
+
+
+</body>
+
+</html>

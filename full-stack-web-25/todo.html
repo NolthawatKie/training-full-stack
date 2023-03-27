@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+</head>
+<body>
+    <target></target>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+        var toDo = {}
+
+        toDo.template = `
+                        <input v-model = "text" placeholder="input your task">
+                        <button @click="addTask()">Add Task</button>
+                        <p v-for = "t in list">{{t}}</p>
+                        `
+        toDo.data = function f() {
+            return {list : [ "s","d","S"], text : ""}
+        }
+        toDo.methods = { }
+        toDo.methods.addTask = function f() {
+                this.list.push(this.text)
+                this.text = ""
+        }
+        Vue.createApp(toDo).mount("target")
+
+    </script>
+    
+</body>
+</html>

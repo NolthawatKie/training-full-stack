@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+</head>
+<body>
+    <button id = 'button'>Go</button>
+    <pre id="result">...</pre>
+
+    <!-- <script>
+        var target = document.getElementById("button")
+        target.onclick = function() {
+            var result = calculcate()
+            var report = document.getElementById("result")
+            report.innerHTML = "the result is " + result
+        }
+
+        function calculcate() {
+            var sum = BigInt(0)
+            for (var i = 0; i < 1000000000; i++) {
+                var b = BigInt(i)
+                sum = sum + b
+            }
+            return sum
+        }
+
+    </script> -->
+
+    <script>
+            var target = document.getElementById("button")
+            target.onclick = async function() {
+                var result = await calculcate()
+                var report = document.getElementById("result")
+                report.innerHTML = "the result is " + result
+            }
+
+            function calculcate() {
+                var p = new Promise(executor)
+                return p
+            }
+    
+            function executor(resolve, reject) {
+                var sum = BigInt(0)
+                for (var i = 0; i < 1000000000; i++) {
+                    var b = BigInt(i)
+                    sum = sum + b
+                }
+                resolve(sum) //return as promise and use in executor
+            }
+    
+        </script>
+    
+</body>
+</html>
