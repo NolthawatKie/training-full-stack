@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <input id = "adress" placeholder = "Ethereum Address">
+    <button onClick = "check()">Check</button>
+</body>
+<script scr="https://cdnjs.cloudflare.com/ajax/libs/web3/3.0.0-rc.0/web3.min.js"></script>
+<script>
+    async function check() {
+        if (typeof ethereum == "undefined") {
+            alert("Please download MetaMask before continue")
+            return 
+        }
+        var a = document.getElementById("address")
+        var w = new Web3(ethereum)
+        var balance = await w.eth.getBalance(input.value)
+        var ether = w.utils.fromWei(balance)
+        alert(ether)
+        // 1,000,000,000,000,000,000 Wei = 1 Ether
+        // 1 e18
+    }
+</script>
+
+</html>

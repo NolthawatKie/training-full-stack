@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+<body>
+    <button onclick="go()">Go</button>
+    <button onclick="refresh()">Refresh</button>
+
+    <script>
+        function go() {
+            var url = "https://api.coinbase.com/v2/prices/BTC-USD/spot"
+            fetch(url).then(convert).then(display)
+            document.body.innerHTML += "test" + "<br>"
+        }
+
+        function convert(response) {
+            return response.text()
+        }
+
+        function display(data) {
+            return document.body.innerHTML += data
+        }
+        async function refresh() {
+            var url = "https://api.coinbase.com/v2/prices/ETH-USD/spot"
+            var response    = await fetch(url)
+            var data        = await response.text()
+            document.body.innerHTML += data
+            document.body.innerHTML += "Test" + "<br>"
+            
+        }
+    </script>
+</body>
+
+</html>

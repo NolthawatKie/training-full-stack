@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id = "main">...</div>
+    <script type="text/babel">
+        class Sample extends React.Component {
+            state = { data : "..."}
+            render() {
+                return  <div>  
+                            <button onClick = {() => this.go(event)}>Refresh</button>
+                            <pre>{this.state.data}</pre>
+                        </div>
+                        
+            }
+            async go(event) {
+                var url = "https://api.coinbase.com/v2/prices/BTC-USD/spot"
+                var response = await fetch(url)
+                var text = await response.text()
+                this.setState({data : text})
+            }
+
+        }
+        var container = document.getElementById("main")
+        var root = ReactDOM.createRoot(container)
+        root.render(<Sample />)
+
+
+    </script>
+        
+</body>
+
+
+</html>

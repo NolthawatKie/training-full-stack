@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="main">...</div>
+    <script type="text/babel">
+        class Todo extends React.Component {
+            state = { text: "", list: ["Test 1", "Test 2"] }
+
+            typing(event) {
+                this.setState({text : event.target.value})
+            }
+
+            add(event) {
+                var tmp1 = this.state.list
+                var tmp2 = this.state.text
+
+                tmp1.push(this.state.text)
+                tmp2 = "" 
+
+                this.setState({list : tmp1, text : ""})
+                
+            }
+
+            delete(event) {
+                var tmp = this.state.list
+                tmp = []
+                this.setState({ list: tmp })
+
+            }
+
+
+            render() {
+                var items = this.state.list.map(x => <p>{x}</p>)
+                return  <div>
+                            <input value = {this.state.text} onChange = {event => this.typing(event)} />
+                            <button onClick = {event => this.add(event)}>Add</button>
+                            <button onClick={event => this.delete(event)}>Clear</button>
+                            {items}
+                        </div>
+            }
+
+
+        }
+        var container = document.getElementById("main")
+        var root = ReactDOM.createRoot(container)
+        root.render(<Todo />)
+
+
+    </script>
+
+</body>
+
+
+</html>

@@ -1,0 +1,8 @@
+// tsconfig.json
+
+{
+	"compileOnSave": true,
+	"compilerOptions": {
+		"experimentalDecorators": true
+	}
+}
